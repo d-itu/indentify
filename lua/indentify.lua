@@ -7,7 +7,7 @@ local augroup = vim.api.nvim_create_augroup("indentify", { clear = true })
 ---@field char string?
 ---@field filter indentify.filter?
 
-local indent_char = '🭱'
+local indent_char = '▏'
 ---@type indentify.filter
 local filter = function(_, buf)
   if vim.api.nvim_get_option_value("buftype", { buf = buf }) ~= "" then return false end
