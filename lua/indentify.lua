@@ -6,7 +6,6 @@ local augroup = vim.api.nvim_create_augroup("indentify", { clear = true })
 ---@class indentify.config
 ---@field char string?
 ---@field filter indentify.filter?
----@field include_range_end boolean?
 
 local indent_char = '🭱'
 ---@type indentify.filter
@@ -196,7 +195,6 @@ local function enable()
   set_handler(indent_handler)
   redraw_cb = vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
     callback = function(arg)
-      -- if not should_redraw(arg.buf, vim.api.nvim_win_get_cursor(0)[1] - 1) then return end
       vim.api.nvim__redraw {
         valid = true,
         buf = arg.buf,
